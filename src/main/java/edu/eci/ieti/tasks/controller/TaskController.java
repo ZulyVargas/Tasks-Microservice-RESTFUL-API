@@ -14,7 +14,8 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 
 @RestController
-@RequestMapping( "/api/v1/tasks" )
+
+@RequestMapping( "/api/v1/task" )
 public class TaskController {
 
     private final TaskService taskService;

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-@Service
+//@Service
 public class TaskServiceHashMap implements TaskService {
 
     HashMap<String, Task> tasks = new HashMap<>();
@@ -32,9 +32,8 @@ public class TaskServiceHashMap implements TaskService {
     }
 
     @Override
-    public boolean deleteById(String id) {
+    public void deleteById(String id) {
         tasks.remove(id);
-        return !tasks.containsKey(id);
     }
 
     @Override

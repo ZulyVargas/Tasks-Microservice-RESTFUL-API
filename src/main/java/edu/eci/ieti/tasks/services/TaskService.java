@@ -13,7 +13,7 @@ public interface TaskService {
 
     List<Task> getAll();
 
-    boolean deleteById( String id );
+    void deleteById( String id );
 
     Task update( Task task, String id );
 }

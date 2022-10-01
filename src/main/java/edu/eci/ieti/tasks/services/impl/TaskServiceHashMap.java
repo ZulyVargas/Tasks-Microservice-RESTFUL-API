@@ -41,4 +41,9 @@ public class TaskServiceHashMap implements TaskService {
         tasks.replace(id,task);
         return tasks.get(id);
     }
+
+    @Override
+    public List<Task> getTasksById(String idUser) {
+        return null;
+    }
 }

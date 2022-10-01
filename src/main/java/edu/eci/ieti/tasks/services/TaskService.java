@@ -16,4 +16,6 @@ public interface TaskService {
     void deleteById( String id );
 
     Task update( Task task, String id );
+
+    List<Task> getTasksById(String idUser);
 }

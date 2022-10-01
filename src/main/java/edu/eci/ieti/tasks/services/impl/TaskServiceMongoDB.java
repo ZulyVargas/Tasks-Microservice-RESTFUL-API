@@ -43,4 +43,9 @@ public class TaskServiceMongoDB  implements TaskService {
         taskRepository.save(task); ;
         return findById(id);
     }
+
+    @Override
+    public List<Task> getTasksById(String idUser) {
+        return taskRepository.findByAssignedToLike(idUser);
+    }
 }

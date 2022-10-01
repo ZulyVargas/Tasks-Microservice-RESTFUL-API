@@ -14,7 +14,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 
 @RestController
-
+@CrossOrigin(origins = "*")
 @RequestMapping( "/api/v1/task" )
 public class TaskController {
 
@@ -84,5 +84,22 @@ public class TaskController {
             return new ResponseEntity<>(false, HttpStatus.ACCEPTED);
         }
     }
+
+    //Get task by id
+    @GetMapping("/tasks/{idUser}")
+    public ResponseEntity<List<TaskDto>> findTasksById(@PathVariable String idUser) {
+        ModelMapper modelMapper = new ModelMapper();
+        List<TaskDto> tasksDTO = new ArrayList<>();
+        try {
+            List<Task> tasksList = taskService.getTasksById(idUser);
+            for (Task task : tasksList) {
+                tasksDTO.add(modelMapper.map(task, TaskDto.class));
+            }
+            return new ResponseEntity<>(tasksDTO, HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }
